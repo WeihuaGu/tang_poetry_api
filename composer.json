@@ -1,0 +1,6 @@
+{
+    "require": {
+        "catfan/Medoo": "^1.5",
+        "mikecao/flight": "^1.3"
+    }
+}
