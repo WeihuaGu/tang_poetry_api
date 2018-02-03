@@ -4,31 +4,12 @@ require 'vendor/autoload.php';
 $database=require 'database.php';
 Flight::set('database', $database);
 Flight::route('/', function(){
-    echo 'hello world!';
+    echo '你好，唐诗!';
 });
 
-Flight::route('/database/info',function(){
-$data=Flight::get('database');
-$info=$data->info();
-foreach($info as $item){
-echo $item;
-echo '</br>';
-}
-});
+//数据库相关路由
+require 'routedatabase.php';
 
-Flight::route('/database/importsql',function(){
-	$data=Flight::get('database'); 
-	$isTable =$data->query('SHOW TABLES LIKE "poets"')->fetchAll();
-		if( $isTable ){
-   			 echo '表存在';
-			 print_r($isTable);
-		}
-		else
-   			 require 'importsql.php';
-		
-
-
-});
-
+//诗歌相关路由
 require 'routepoetry.php';
 Flight::start();
