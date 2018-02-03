@@ -1,6 +1,6 @@
 <?php
 
-function display($data,$num) {
+function randomdisplay($data,$num) {
     if($num==NULL){
 		$poetry=$data->query("select * from poetries order by rand( ) limit 1;")->fetchAll();
 		echo $poetry[0]['title'];
@@ -16,7 +16,7 @@ function display($data,$num) {
         }
 }
 
-function handlewithjson($data,$num){
+function randomhandlewithjson($data,$num){
       if($num==NULL){
                 $poetry=$data->query("select * from poetries order by rand( ) limit 1;")->fetchAll();
 
@@ -32,8 +32,38 @@ Flight::route('/poetry/random(/@num:[0-9]{1,99})(/@display)',function($num,$disp
 $data=Flight::get('database');
 
 if($display!=NULL)
-        display($data,$num);
+        randomdisplay($data,$num);
 else
-        handlewithjson($data,$num);
+        randomhandlewithjson($data,$num);
+});
+
+function namedisplay($data,$name){
+
+$poetries=$data->select("poetries",["title","content"],["title"=>$name]);	
+foreach ($poetries as $poetry){
+                echo $poetry['title'];
+                echo '</br>';
+                echo $poetry['content'];
+                }
+
+
+
+}
+
+function namehandlewithjson($data,$name){
+$poetries=$data->select("poetries","*",["title"=>$name]);
+                
+echo Flight::json($poetries);
+}
+
+
+Flight::route('/poetry/name/@name(/@display)',function($name,$display){
+
+$data=Flight::get('database');
+
+if($display!=NULL)
+        namedisplay($data,$name);
+else
+        namehandlewithjson($data,$name);
 });
 

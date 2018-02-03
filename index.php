@@ -12,4 +12,6 @@ require 'routedatabase.php';
 
 //诗歌相关路由
 require 'routepoetry.php';
+
+require 'routepoet.php';
 Flight::start();

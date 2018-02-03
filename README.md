@@ -27,7 +27,12 @@ API 默认返回json,如果要便于查看，请在url后添加/display
 | 随即获取一首诗 | [/poetry/random](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poetry/random)|
 | 随即获取一首诗(人查看) | [/poetry/random/display](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poetry/random/display)|
 | 随即获取数首诗(最大可以返回99首) | [/poetry/random/2](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poetry/random/2) |
+| 用诗的题目查询 | [/poetry/name/阿那曲](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poetry/name/阿那曲) |
 
+### poets
+| 资源 | 地址 |
+| - | - |
+| 通过创作数量排名 | [/poet/list/createnum](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poet/list/createnum/display) |
 
 
 
