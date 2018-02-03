@@ -27,7 +27,7 @@ function handlewithjson($data,$num){
                 }
 
 }
-Flight::route('/poetry/random(/@num:[0-9]{2})(/@display)',function($num,$display){
+Flight::route('/poetry/random(/@num:[0-9]{1,99})(/@display)',function($num,$display){
 
 $data=Flight::get('database');
 
