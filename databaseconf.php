@@ -6,6 +6,6 @@ return
         'server' => $_ENV['MYSQL_HOST'],
         'username' => $_ENV['MYSQL_USERNAME'],
         'password' =>$_ENV['MYSQL_PASSWORD'],
-        'port' => $_ENV['MYSQL_PORT']
+        'port' => $_ENV['MYSQL_PORT'],
         'charset' => 'utf8'
     ];
