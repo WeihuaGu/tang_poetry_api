@@ -36,4 +36,6 @@ mysql.coding.io via TCP/IP
 ## 致谢
 全唐诗数据库来源：
 [hxgdzyuyi/tang_poetry](https://github.com/hxgdzyuyi/tang_poetry)
+## coding 地址
+[coding 仓库](https://coding.net/u/bookfind/p/poetry-of-the-Tang/git)
 
