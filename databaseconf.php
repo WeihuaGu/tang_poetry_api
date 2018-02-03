@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+if($_ENV['MYSQL_DBNAME']!=null){
+ 
 return 
 [
         'database_type' => 'mysql',
@@ -9,3 +12,15 @@ return
         'port' => $_ENV['MYSQL_PORT'],
         'charset' => 'utf8'
     ];
+}else
+
+return 
+[
+        'database_type' => 'mysql',
+        'database_name' => 'tang_poetry',
+        'server' => 'localhost',
+        'username' => 'root',
+        'password' => '1992',
+        'charset' => 'utf8'
+    ];
+
