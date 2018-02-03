@@ -16,8 +16,18 @@ mysql.coding.io via TCP/IP
 如果你完成了配置数据库，并且/database/info返回正常，你只需要再访问/database/importsql就可以自动倒入所需数据了。
 
 
+## REST API
+API 默认返回json,如果要便于查看，请在url后添加/display
+如随机会返回一首诗的api为/poetry/random,/poetry/random/display是便于人查看的资源地址
 
+### poetry
 
+| 资源 | 地址 |
+| - | - |
+| 随即获取一首诗 | [/poetry/random](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poetry/random)|
+| 随即获取一首诗(人查看) | [/poetry/random/display](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poetry/random/display)|
+
+| 随即获取数首诗 | [/poetry/random/2](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poetry/random/2) |
 
 
 
