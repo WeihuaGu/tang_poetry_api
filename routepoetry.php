@@ -15,7 +15,6 @@ function randomdisplay($data,$num) {
 		}
         }
 }
-
 function randomhandlewithjson($data,$num){
       if($num==NULL){
                 $poetry=$data->query("select * from poetries order by rand( ) limit 1;")->fetchAll();
@@ -37,26 +36,19 @@ else
         randomhandlewithjson($data,$num);
 });
 
-function namedisplay($data,$name){
 
+function namedisplay($data,$name){
 $poetries=$data->select("poetries",["title","content"],["title"=>$name]);	
 foreach ($poetries as $poetry){
                 echo $poetry['title'];
                 echo '</br>';
                 echo $poetry['content'];
                 }
-
-
-
 }
-
 function namehandlewithjson($data,$name){
-$poetries=$data->select("poetries","*",["title"=>$name]);
-                
+$poetries=$data->select("poetries","*",["title"=>$name]);             
 echo Flight::json($poetries);
 }
-
-
 Flight::route('/poetry/name/@name(/@display)',function($name,$display){
 
 $data=Flight::get('database');
@@ -67,3 +59,40 @@ else
         namehandlewithjson($data,$name);
 });
 
+function authorhandlewithjson($data,$author){
+/**
+echo 'test start';
+$table='poetries';
+$columns=["poetries.title","poetries.content"];
+$join=[ "[>]poets"=>["poet_id"=>"id"] ];
+$where=["LIMIT" => 50];
+**/
+$query="select poetries.* from poetries left join poets on poetries.poet_id=poets.id where poets.name=:name";
+$poetries=$data->query($query,["name"=>$author])->fetchAll();
+Flight::json($poetries);
+
+}
+
+function  authordisplay($data,$author){
+$query="select poetries.* from poetries left join poets on poetries.poet_id=poets.id where poets.name=:name";
+$poetries=$data->query($query,["name"=>$author])->fetchAll();
+foreach($poetries as $poetry){
+echo $poetry['title'];
+echo '</br>';
+echo $poetry['content'];
+echo '</br>';
+
+}
+
+
+}
+
+Flight::route('/poetry/author/@author(/@display)',function($author,$display){
+
+$data=Flight::get('database');
+
+if($display!=NULL)
+        authordisplay($data,$author);
+else
+        authorhandlewithjson($data,$author);
+});
