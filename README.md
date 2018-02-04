@@ -34,7 +34,7 @@ API 默认返回json,如果要便于查看，请在url后添加/display
 | - | - |
 | 通过创作数量排名 | [/poet/list/createnum](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poet/list/createnum/display) |
 | 列出这个诗人的所有诗 | [/poetry/author/李白](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poetry/author/李白) |
-
+| 列出这个诗人的这首诗 | [/poetry/author/张若虚/name/春江花月夜](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poetry/author/张若虚/name/春江花月夜) |
 
 
 

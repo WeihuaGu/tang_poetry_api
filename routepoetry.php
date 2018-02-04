@@ -96,3 +96,33 @@ if($display!=NULL)
 else
         authorhandlewithjson($data,$author);
 });
+
+
+function authorbynamehandlewithjson($data,$author,$name){
+$query="select poetries.* from poetries left join poets on poetries.poet_id=poets.id where poets.name=:name and poetries.title=:title";
+$poetries=$data->query($query,["name"=>$author,"title"=>$name])->fetchAll();
+Flight::json($poetries);
+}
+
+function  authorbynamedisplay($data,$author,$name){
+$query="select poetries.* from poetries left join poets on poetries.poet_id=poets.id where poets.name=:name and poetries.title=:title";
+$poetries=$data->query($query,["name"=>$author,"title"=>$name])->fetchAll();
+foreach($poetries as $poetry){
+echo $poetry['title'];
+echo '</br>';
+echo $poetry['content'];
+echo '</br>';
+}
+}
+
+
+Flight::route('/poetry/author/@author/name/@name(/@display)',function($author,$name,$display){
+
+$data=Flight::get('database');
+
+if($display!=NULL)
+        authorbynamedisplay($data,$author,$name);
+else
+        authorbynamehandlewithjson($data,$author,$name);
+});
+
