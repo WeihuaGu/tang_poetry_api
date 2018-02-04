@@ -38,7 +38,7 @@ else
 
 
 function namedisplay($data,$name){
-$poetries=$data->select("poetries",["title","content"],["title"=>$name]);	
+$poetries=$data->select("poetries",["title","content"],["title[~]"=>$name]);	
 foreach ($poetries as $poetry){
                 echo $poetry['title'];
                 echo '</br>';
@@ -46,7 +46,7 @@ foreach ($poetries as $poetry){
                 }
 }
 function namehandlewithjson($data,$name){
-$poetries=$data->select("poetries","*",["title"=>$name]);             
+$poetries=$data->select("poetries","*",["title[~]"=>$name]);             
 echo Flight::json($poetries);
 }
 Flight::route('/poetry/name/@name(/@display)',function($name,$display){
@@ -99,14 +99,14 @@ else
 
 
 function authorbynamehandlewithjson($data,$author,$name){
-$query="select poetries.* from poetries left join poets on poetries.poet_id=poets.id where poets.name=:name and poetries.title=:title";
-$poetries=$data->query($query,["name"=>$author,"title"=>$name])->fetchAll();
+$query="select poetries.* from poetries left join poets on poetries.poet_id=poets.id where poets.name=:name and poetries.title like :title";
+$poetries=$data->query($query,["name"=>$author,"title"=>"%".$name."%"])->fetchAll();
 Flight::json($poetries);
 }
 
 function  authorbynamedisplay($data,$author,$name){
-$query="select poetries.* from poetries left join poets on poetries.poet_id=poets.id where poets.name=:name and poetries.title=:title";
-$poetries=$data->query($query,["name"=>$author,"title"=>$name])->fetchAll();
+$query="select poetries.* from poetries left join poets on poetries.poet_id=poets.id where poets.name=:name and poetries.title like :title";
+$poetries=$data->query($query,["name"=>$author,"title"=>"%".$name."%"])->fetchAll();
 foreach($poetries as $poetry){
 echo $poetry['title'];
 echo '</br>';
