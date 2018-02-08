@@ -14,4 +14,6 @@ require 'routedatabase.php';
 require 'routepoetry.php';
 
 require 'routepoet.php';
+
+require 'routeinterest.php';
 Flight::start();

@@ -36,6 +36,10 @@ API 默认返回json,如果要便于查看，请在url后添加/display
 | 列出这个诗人的所有诗 | [/poetry/author/李白](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poetry/author/李白) |
 | 列出这个诗人的这首诗 | [/poetry/author/张若虚/name/春江花月夜](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/poetry/author/张若虚/name/春江花月夜) |
 
+### interest
+| 资源 | 地址 |
+| - | - |
+|写一句诗，看和哪个诗人比较接近 | [/interest/likewho/我信正相离](http://a000bf76-6b71-459f-9fdc-c36c368b3ba0.coding.io/interest/likewho/我信正相离) |
 
 
 
